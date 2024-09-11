@@ -39,6 +39,8 @@
                    value="10">
         </div>
 
+        <hr class="my-4">
+
         <div>판매 여부</div>
         <div>
             <div class="form-check">
@@ -54,6 +56,17 @@
                        type="checkbox">
                 <label class="form-check-label"
                        th:for="${#ids.prev('regions')}" th:text="${region.value}">서울</label>
+            </div>
+        </div>
+
+        <div>
+            <div>상품 종류</div>
+            <div class="form-check form-check-inline" th:each="type : ${itemTypes}">
+                <input class="form-check-input" th:field="*{itemType}" th:value="${type.name()}"
+                       type="radio">
+                <label class="form-check-label" th:for="${#ids.prev('itemType')}" th:text="${type.description}">
+                    BOOK
+                </label>
             </div>
         </div>
 
